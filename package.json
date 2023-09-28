@@ -1,0 +1,17 @@
+{
+  "name": "eslint-plugin-import-sort-bezier-curve",
+  "version": "1.0.0",
+  "description": "an eslint plugin to sort your imports along a cubic bezier curve",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MatthewStanciu",
+  "license": "MIT",
+  "dependencies": {
+    "bezier-js": "^6.1.4"
+  },
+  "peerDependencies": {
+    "eslint": "^8.0.0"
+  }
+}
