@@ -46,7 +46,7 @@ const rule: Rule.RuleModule = {
         for (let i = 0; i < imports.length; i++) {
           const importNode = imports[i];
           const importRange = importNode.range;
-          if (!importNode || !importRange) return;
+          if (!importNode || !importRange) break;
           const sourceCode = context.sourceCode;
 
           const lineStart = sourceCode.getIndexFromLoc({
