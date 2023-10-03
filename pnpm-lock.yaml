@@ -10,6 +10,9 @@ dependencies:
     version: 6.1.4
 
 devDependencies:
+  '@types/bezier-js':
+    specifier: ^4.1.1
+    version: 4.1.1
   '@types/eslint':
     specifier: ^8.44.3
     version: 8.44.3
@@ -418,6 +421,10 @@ packages:
 
   /@swc/types@0.1.5:
     resolution: {integrity: sha512-myfUej5naTBWnqOCc/MdVOLVjXUXtIA+NpDrDBKJtLLg2shUjBu3cZmB/85RyitKc55+lUUyl7oRfLOvkr2hsw==}
+    dev: true
+
+  /@types/bezier-js@4.1.1:
+    resolution: {integrity: sha512-AmkiEAF4I0W89d1/QkoP94r9y0+5+zpJqX9QCkG3JO4dPbzS+Kn4tApsU2bRKbn+JWcuA7q9OFiwkfo/ek+Rdw==}
     dev: true
 
   /@types/eslint@8.44.3:
