@@ -1,6 +1,7 @@
-const { Bezier } = require("bezier-js");
+import type { Rule } from "eslint";
+import { Bezier } from "bezier-js";
 
-module.exports = {
+const rule: Rule.RuleModule = {
   meta: {
     type: "layout",
     docs: {
@@ -14,7 +15,7 @@ module.exports = {
   create: function (context) {
     return {
       Program: function (_node) {
-        const sourceCode = context.getSourceCode();
+        const sourceCode = context.sourceCode;
         const imports = sourceCode.ast.body.filter(
           (node) => node.type === "ImportDeclaration"
         );
@@ -30,14 +31,14 @@ module.exports = {
         });
 
         const importsSortedLeastToGreatest = imports.slice().sort((a, b) => {
-          const aLength = context.getSourceCode().getText(a).length;
-          const bLength = context.getSourceCode().getText(b).length;
+          const aLength = context.sourceCode.getText(a).length;
+          const bLength = context.sourceCode.getText(b).length;
 
           return aLength - bLength;
         });
 
         const bezierImports = importsSortedLeastToGreatest.map((imp, i) => {
-          const text = context.getSourceCode().getText(imp);
+          const text = context.sourceCode.getText(imp);
           return " ".repeat(targetLengths[i]) + text;
         });
 
@@ -45,10 +46,11 @@ module.exports = {
         for (let i = 0; i < imports.length; i++) {
           const importNode = imports[i];
           const importRange = importNode.range;
-          const sourceCode = context.getSourceCode();
+          if (!importNode || !importRange) return;
+          const sourceCode = context.sourceCode;
 
           const lineStart = sourceCode.getIndexFromLoc({
-            line: importNode.loc.start.line,
+            line: importNode.loc!.start.line,
             column: 0,
           });
 
@@ -64,8 +66,8 @@ module.exports = {
         }
 
         if (discrepancyFound) {
-          const start = imports[0].loc.start;
-          const end = imports[imports.length - 1].loc.end;
+          const start = imports[0].loc!.start;
+          const end = imports[imports.length - 1].loc!.end;
           context.report({
             loc: {
               start,
@@ -89,3 +91,5 @@ module.exports = {
     };
   },
 };
+
+export default rule;
