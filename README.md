@@ -1,6 +1,6 @@
 # eslint-plugin-imports-whitespace-bezier-curve
 
-<img src="https://github.com/MatthewStanciu/eslint-plugin-imports-whitespace-bezier-curve/assets/14811170/977689d1-5873-453d-8d10-6abfde40b991" width="50%" />
+<img src="https://github.com/MatthewStanciu/eslint-plugin-imports-whitespace-bezier-curve/assets/14811170/977689d1-5873-453d-8d10-6abfde40b991" width="60%" />
 
 A silly little ESLint plugin to enforce that the import statements in a file follow a cubic Bezier curve.
 
