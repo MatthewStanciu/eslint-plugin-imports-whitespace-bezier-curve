@@ -39,27 +39,16 @@ const rule: Rule.RuleModule = {
 
         const bezierImports = importsSortedLeastToGreatest.map((imp, i) => {
           const text = context.sourceCode.getText(imp);
-          return " ".repeat(targetLengths[i]) + text;
+          const parts = text.split(" ");
+          return `${parts[0]} ${" ".repeat(targetLengths[i])}${parts
+            .slice(1)
+            .join(" ")
+            .trim()}`;
         });
 
         let discrepancyFound = false;
         for (let i = 0; i < imports.length; i++) {
-          const importNode = imports[i];
-          const importRange = importNode.range;
-          if (!importNode || !importRange) break;
-          const sourceCode = context.sourceCode;
-
-          const lineStart = sourceCode.getIndexFromLoc({
-            line: importNode.loc!.start.line,
-            column: 0,
-          });
-
-          const textWithLeadingWhitespace = sourceCode.text.slice(
-            lineStart,
-            importRange[1] // 0 = "start", 1 = "end"
-          );
-
-          if (textWithLeadingWhitespace !== bezierImports[i]) {
+          if (context.sourceCode.getText(imports[i]) !== bezierImports[i]) {
             discrepancyFound = true;
             break;
           }
@@ -74,7 +63,7 @@ const rule: Rule.RuleModule = {
               end,
             },
             message:
-              "Whitespace before your imports must follow this cubic Bezier curve: https://doggo.ninja/4NCe4v.png",
+              "Whitespace after every import keyword must follow this cubic Bezier curve: https://doggo.ninja/4NCe4v.png",
             fix: (fixer) => {
               const bezierImportsText = bezierImports.join("\n");
               return fixer.replaceTextRange(
