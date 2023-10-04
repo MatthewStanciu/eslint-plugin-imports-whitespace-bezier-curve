@@ -12,6 +12,8 @@ If you use Prettier, this plugin will conflict with it. But that's part of the f
 
 `$ pnpm i eslint-plugin-imports-whitespace-bezier-curve --save-dev`
 
+If you haven't already, [set up ESLint in your project.](https://eslint.org/docs/latest/use/getting-started)
+
 Add the plugin & rule to your ESLint config (`.eslintrc.json`):
 
 ```json
