@@ -22,7 +22,21 @@ const rule: Rule.RuleModule = {
 
         if (!imports.length) return;
 
-        const curve = new Bezier(0, 0, 0, 25, 25, 0, 25, 25);
+        let maxValue;
+        if (imports.length < 10) maxValue = 15;
+        else if (imports.length < 15) maxValue = 20;
+        else maxValue = 25;
+
+        const curve = new Bezier(
+          0,
+          0,
+          0,
+          maxValue,
+          maxValue,
+          0,
+          maxValue,
+          maxValue
+        );
 
         const tValues = imports.map((_, i) => i / (imports.length - 1));
         const targetLengths = tValues.map((t) => {
