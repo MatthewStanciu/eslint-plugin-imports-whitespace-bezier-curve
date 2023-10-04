@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-imports-whitespace-bezier-curve",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "an eslint plugin for import whitespace to follow a bezier curve",
   "main": "dist/index.js",
   "scripts": {
