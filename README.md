@@ -2,7 +2,7 @@
 
 <img src="https://github.com/MatthewStanciu/eslint-plugin-imports-whitespace-bezier-curve/assets/14811170/977689d1-5873-453d-8d10-6abfde40b991" alt="demo" width="75%" />
 
-A silly little ESLint plugin to enforce that the import statements in a file follow a cubic Bezier curve.
+A silly little ESLint plugin to enforce that the import statements in a file follow a predefined cubic Bezier curve.
 
 If you use Prettier, this plugin will conflict with it. But that's part of the fun 😈
 
