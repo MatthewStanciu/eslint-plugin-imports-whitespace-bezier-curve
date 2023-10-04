@@ -2,6 +2,12 @@
   "name": "eslint-plugin-imports-whitespace-bezier-curve",
   "version": "1.0.1",
   "description": "an eslint plugin for import whitespace to follow a bezier curve",
+  "repository": "https://github.com/MatthewStanciu/eslint-plugin-imports-whitespace-bezier-curve",
+  "keywords": [
+    "bezier",
+    "eslint",
+    "javascript"
+  ],
   "main": "dist/index.js",
   "scripts": {
     "build": "bunchee"
