@@ -7,7 +7,7 @@ const config = {
   configs: {
     recommended: {
       rules: {
-        "import-sort-bezier-curve/imports-whitespace-bezier-curve": 2,
+        "imports-whitespace-bezier-curve/imports-whitespace-bezier-curve": 2,
       },
     },
   },
