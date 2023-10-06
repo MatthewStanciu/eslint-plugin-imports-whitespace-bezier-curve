@@ -15,8 +15,7 @@ const rule: Rule.RuleModule = {
   create: function (context) {
     return {
       Program: function (_node) {
-        const sourceCode = context.sourceCode;
-        const imports = sourceCode.ast.body.filter(
+        const imports = context.sourceCode.ast.body.filter(
           (node) => node.type === "ImportDeclaration"
         );
 
@@ -82,8 +81,8 @@ const rule: Rule.RuleModule = {
               const bezierImportsText = bezierImports.join("\n");
               return fixer.replaceTextRange(
                 [
-                  sourceCode.getIndexFromLoc(start),
-                  sourceCode.getIndexFromLoc(end),
+                  context.sourceCode.getIndexFromLoc(start),
+                  context.sourceCode.getIndexFromLoc(end),
                 ],
                 bezierImportsText
               );
